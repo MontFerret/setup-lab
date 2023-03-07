@@ -1,0 +1,57 @@
+name: 'Ferret Lab'
+description: 'Runs FQL tests'
+inputs:
+  files:  # id of input
+    description: 'Directory to run tests in'
+    required: true
+    default: 'test'
+  timeout:
+    description: 'Timeout for tests'
+    required: false
+    default: '10s'
+  params:
+    description: 'Parameters to pass to test files'
+    required: false
+  runtime:
+    description: 'Runtime to use'
+    required: false
+  runtime-param:
+    description: 'Runtime parameters'
+    required: false
+  concurrency:
+    description: 'Number of multiple tests to run at a time'
+    required: false
+    default: 1
+  times:
+    description: 'Number of times to run tests'
+    required: false
+    default: 1
+  attempts:
+    description: 'Number of times to retry failed tests'
+    required: false
+    default: 1
+  times-interval:
+    description: 'Interval between test runs'
+    required: false
+    default: '0s'
+  cdn:
+    description: 'File or directory to serve via HTTP'
+    required: false
+    default: false
+outputs:
+  time: # id of output
+    description: 'The time we greeted you'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.files }}
+    - ${{ inputs.timeout }}
+    - ${{ inputs.params }}
+    - ${{ inputs.runtime }}
+    - ${{ inputs.runtime-param }}
+    - ${{ inputs.cdn }}
+    - ${{ inputs.concurrency }}
+    - ${{ inputs.times }}
+    - ${{ inputs.attempts }}
+    - ${{ inputs.times-interval }}

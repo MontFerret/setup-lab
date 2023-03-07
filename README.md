@@ -1,2 +1,2 @@
 # setup-lab
-GitHub Action to setup and run Ferret Lab
+GitHub Action to set up and run Ferret Lab
