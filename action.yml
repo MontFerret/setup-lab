@@ -38,9 +38,6 @@ inputs:
     description: 'File or directory to serve via HTTP'
     required: false
     default: false
-outputs:
-  time: # id of output
-    description: 'The time we greeted you'
 runs:
   using: 'docker'
   image: 'Dockerfile'
